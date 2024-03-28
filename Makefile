@@ -1,91 +1,138 @@
-#####################
-##########ARGUMENTS
+################################################################################
+#                          Makefile configuration                              #
+################################################################################
 
 NAME	= libft.a
-CFLAG	= -Wall -Wextra -Werror
-CC		= cc
+AR	= ar -crs
+CFLAG	= -Wall -Wextra -Werror -g3
+CC	= cc
 
-####################
-##########SOURCES
+################################################################################
+#                                 Include                                      #
+################################################################################
 
-SRCS =	ft_atoi.c \
-		ft_bzero.c \
-		ft_calloc.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_putstr_fd.c \
-		ft_split.c \
-		ft_strchr.c \
-		ft_strdup.c \
-		ft_striteri.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_strmapi.c \
-		ft_strncmp.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_strtrim.c \
-		ft_substr.c \
-		ft_tolower.c \
-		ft_toupper.c \
+INCDIR = include
 
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
+INC	= ${INCDIR}/libft.h \
+	  ${INCDIR}/ft_printf.h \
+	  ${INCDIR}/get_next_line.h \
+	  ${INCDIR}/get_next_line_bonus.h \
 
-SRCSBONUS = ${SRCS} ${BONUS}
+################################################################################
+#                                 Sources                              	       #
+################################################################################
 
-OBJ = ${SRCS:.c=.o}
+SRCDIR = src
 
-OBJS = ${SRCSBONUS:.c=.o}
+FT_IS	= ${SRCDIR}/ft_is/ft_isalnum.c \
+		  ${SRCDIR}/ft_is/ft_isalpha.c \
+		  ${SRCDIR}/ft_is/ft_isascii.c \
+		  ${SRCDIR}/ft_is/ft_isdigit.c \
+		  ${SRCDIR}/ft_is/ft_isprint.c \
 
-# Include
-INC	= libft.h
+FT_LST	= ${SRCDIR}/ft_lst/ft_lstadd_back.c \
+		  ${SRCDIR}/ft_lst/ft_lstadd_front.c \
+		  ${SRCDIR}/ft_lst/ft_lstclear.c \
+		  ${SRCDIR}/ft_lst/ft_lstdelone.c \
+		  ${SRCDIR}/ft_lst/ft_lstiter.c \
+		  ${SRCDIR}/ft_lst/ft_lstlast.c \
+		  ${SRCDIR}/ft_lst/ft_lstmap.c \
+		  ${SRCDIR}/ft_lst/ft_lstnew.c \
+		  ${SRCDIR}/ft_lst/ft_lstsize.c \
 
-#####################
-##########RULES
+FT_STR	= ${SRCDIR}/ft_str/ft_strchr.c \
+		  ${SRCDIR}/ft_str/ft_strdup.c \
+		  ${SRCDIR}/ft_str/ft_striteri.c \
+		  ${SRCDIR}/ft_str/ft_strjoin.c \
+		  ${SRCDIR}/ft_str/ft_strlcat.c \
+		  ${SRCDIR}/ft_str/ft_strlcpy.c \
+		  ${SRCDIR}/ft_str/ft_strlen.c \
+		  ${SRCDIR}/ft_str/ft_strmapi.c \
+		  ${SRCDIR}/ft_str/ft_strncmp.c \
+		  ${SRCDIR}/ft_str/ft_strnstr.c \
+		  ${SRCDIR}/ft_str/ft_strrchr.c \
+		  ${SRCDIR}/ft_str/ft_strtrim.c \
+		  ${SRCDIR}/ft_str/ft_substr.c \
+
+FT_FD	= ${SRCDIR}/ft_fd/ft_putchar_fd.c \
+		  ${SRCDIR}/ft_fd/ft_putendl_fd.c \
+		  ${SRCDIR}/ft_fd/ft_putnbr_fd.c \
+		  ${SRCDIR}/ft_fd/ft_putstr_fd.c \
+
+FT_MEM	= ${SRCDIR}/ft_mem/ft_memchr.c \
+		  ${SRCDIR}/ft_mem/ft_memcmp.c \
+		  ${SRCDIR}/ft_mem/ft_memcpy.c \
+		  ${SRCDIR}/ft_mem/ft_memmove.c \
+		  ${SRCDIR}/ft_mem/ft_memset.c \
+
+FT_TO	= ${SRCDIR}/ft_to/ft_tolower.c \
+		  ${SRCDIR}/ft_to/ft_toupper.c \
+
+LIBFT 	= ${SRCDIR}/ft_atoi.c \
+	  	${SRCDIR}/ft_bzero.c \
+	 	${SRCDIR}/ft_calloc.c \
+	  	${SRCDIR}/ft_itoa.c \
+	  	${SRCDIR}/ft_split.c \
+
+FT_PRINTF	= ${SRCDIR}/ft_printf/ft_printf.c \
+		  ${SRCDIR}/ft_printf/ft_printf_hex.c \
+		  ${SRCDIR}/ft_printf/ft_printf_itoa.c \
+		  ${SRCDIR}/ft_printf/ft_printf_itoa_plus.c \
+		  ${SRCDIR}/ft_printf/ft_printf_itoa_space.c \
+		  ${SRCDIR}/ft_printf/ft_printf_putstr.c \
+		  ${SRCDIR}/ft_printf/ft_printf_uitoa.c \
+		  ${SRCDIR}/ft_printf/ft_putchar.c \
+
+GNL		= ${SRCDIR}/get_next_line/get_next_line_bonus.c \
+		  ${SRCDIR}/get_next_line/get_next_line.c \
+		  ${SRCDIR}/get_next_line/get_next_line_utils_bonus.c \
+		  ${SRCDIR}/get_next_line/get_next_line_utils.c \
+
+SRC 		= ${FT_IS} ${FT_LST} ${FT_STR} ${FT_FD} ${FT_MEM} ${FT_TO} ${LIBFT} ${FT_PRINTF} ${GNL}
+
+################################################################################
+#                                   Objects                                    #
+################################################################################
+
+OBJ = ${SRC:${SRCDIR}/%.c=${OBJDIR}/%.o}
+OBJDIR = objs
+
+################################################################################
+#                                   Colors                          	       #
+################################################################################
+
+BLACK = \033[0;30m
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+PURPLE = \033[0;35m
+CYAN = \033[0;36m
+
+################################################################################
+#                                    Rules                                     #
+################################################################################
 
 all: ${NAME}
 
-${NAME} : ${OBJ}
-	ar -crs ${NAME} ${OBJ}
+${NAME}: $(OBJ)
+	@${AR} ${NAME}
+	@echo "${YELLOW}✰✰✰ Congrats! Your ${NAME} has been created ✰✰✰ :D"
 
-%.o : %.c
-	${CC} ${CFLAG} -c $< -o $@
-
-bonus: ${OBJS}
-	ar -crs ${NAME} ${OBJS}
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAG) $(SRCSBONUS)
-	cc -nostartfiles -shared -o libft.so $(OBJS)
+${OBJDIR}/%.o: ${SRCDIR}/%.c
+	@mkdir -p ${dir $@}
+	@${CC} ${CFLAG} -c $< -o $@
+	@echo "${GREEN}***  Compilation success  ***"
 
 clean: 
-	rm -f *.o
+	@rm -rf ${OBJDIR}
+	@echo "${PURPLE}► Cleaning done: ${OBJDIR} directory has been removed ◄"
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
+	@echo "${BLUE}► Fclean done: ${NAME} has been removed ◄"
 
 re: fclean all
+	@echo "${CYAN}↻↻↻ Makefile has been re'd ↺↺↺ \o/"
 
 .PHONY: all clean fclean re bonus
