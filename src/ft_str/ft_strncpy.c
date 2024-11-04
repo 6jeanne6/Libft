@@ -6,12 +6,13 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:23:58 by jewu              #+#    #+#             */
-/*   Updated: 2024/07/20 17:27:25 by jewu             ###   ########.fr       */
+/*   Updated: 2024/11/04 17:16:36 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+//copy src into dst for n characters
 char	*ft_strncpy(char *dst, char *src, int n)
 {
 	int	i;
@@ -31,4 +32,3 @@ char	*ft_strncpy(char *dst, char *src, int n)
 	}
 	return (dst);
 }
-//copy src into dst for n characters

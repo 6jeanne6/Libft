@@ -6,12 +6,13 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:34:33 by jewu              #+#    #+#             */
-/*   Updated: 2024/06/20 16:05:09 by jewu             ###   ########.fr       */
+/*   Updated: 2024/11/04 17:16:16 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+//compares two strings and returns difference in ascii
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -27,4 +28,3 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (s1[i] - s2[i]);
 }
-//compares two strings and returns difference in ascii

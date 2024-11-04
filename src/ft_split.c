@@ -6,38 +6,11 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:38:10 by jewu              #+#    #+#             */
-/*   Updated: 2024/08/07 17:42:57 by jewu             ###   ########.fr       */
+/*   Updated: 2024/11/04 17:15:49 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
-// size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	if (size > 0)
-// 	{
-// 		while (src[i] != '\0' && i < size - 1)
-// 		{
-// 			dst[i] = src[i];
-// 			i++;
-// 		}
-// 		dst[i] = '\0';
-// 	}
-// 	return (ft_strlen(src));
-// }
 
 static size_t	count_words(char const *str, char c)
 {
@@ -102,6 +75,11 @@ static int	print_words(char **dest, char *str, char c)
 	return (1);
 }
 
+/*
+1) Compter le nombre de mots dans la string
+2) Alloc words = malloc une string (chaque lettre d'un mot)
+3) Split = malloc le tableau de tableau
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
@@ -117,27 +95,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ptr);
 }
-
-// #include <stdio.h>
-// int	main(int argc, char **argv)
-// {
-// 	char **oui;
-
-// 	int i = 0;
-// 	(void) argc;
-// 	oui = ft_split(argv[1], argv[2][0]);
-// 	if (!oui)
-// 		return (0);
-// 	while(oui[i] != NULL)
-// 	{
-// 		printf("%s\n", oui[i]);
-// 		i++;
-// 	}
-
-// 	return (0);
-// }
-/*
-1) Compter le nombre de mots dans la string
-2) Alloc words = malloc une string (chaque lettre d'un mot)
-3) Split = malloc le tableau de tableau
-*/
