@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 15:37:44 by jewu              #+#    #+#             */
-/*   Updated: 2024/05/09 17:01:03 by jewu             ###   ########.fr       */
+/*   Created: 2024/07/20 17:23:58 by jewu              #+#    #+#             */
+/*   Updated: 2024/07/20 17:27:25 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../../include/libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strncpy(char *dst, char *src, int n)
 {
-	size_t	i;
-	char	*ptr;
+	int	i;
 
 	i = 0;
-	ptr = (char *)s;
-	while (i < n)
+	if (!dst || !src)
+		return (NULL);
+	while (i < n && src[i] != '\0')
 	{
-		ptr[i] = '\0';
+		dst[i] = src[i];
 		i++;
 	}
+	while (i < n)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }
-//set all variables within a structure to zero
+//copy src into dst for n characters
