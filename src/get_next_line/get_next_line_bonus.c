@@ -6,7 +6,7 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:13:10 by jewu              #+#    #+#             */
-/*   Updated: 2024/04/11 14:53:23 by jewu             ###   ########.fr       */
+/*   Updated: 2024/11/04 17:28:19 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char	*read_and_join(int fd, char *buffer, char *stash)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (NULL);
+			return (free(stash), NULL);
 		buffer[bytes_read] = '\0';
 		temp = ft_strjoin_gnl(stash, buffer);
 		if (!temp || temp[0] == '\0')
@@ -106,11 +106,12 @@ char	*get_next_line(int fd)
 	char		*buf;
 	char		*line;
 
-	/*if (fd == -42)
-	{
-		free(stash);
-		return (NULL);
-	}*/
+	// if (fd == -42)
+	// {
+	// 	free(stash);
+	// 	stash = NULL;
+	// 	return (NULL);
+	// }
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buf = ft_calloc_gnl(BUFFER_SIZE + 1, sizeof(char));

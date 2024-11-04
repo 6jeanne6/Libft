@@ -6,13 +6,12 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:37:44 by jewu              #+#    #+#             */
-/*   Updated: 2024/11/04 17:14:39 by jewu             ###   ########.fr       */
+/*   Updated: 2024/05/09 17:01:03 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-//set all variables within a structure to zero
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
@@ -26,3 +25,4 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+//set all variables within a structure to zero

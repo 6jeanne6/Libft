@@ -6,13 +6,12 @@
 /*   By: jewu <jewu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:50:07 by jewu              #+#    #+#             */
-/*   Updated: 2024/11/04 17:14:50 by jewu             ###   ########.fr       */
+/*   Updated: 2024/02/11 14:52:42 by jewu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-//init all variables to 0
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*ptr;
